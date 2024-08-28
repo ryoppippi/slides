@@ -1,6 +1,6 @@
-# ryoppippi's slide
+# ryoppippi's talks
 
-Slides by ryoppippi
+Talks & Slides by ryoppippi
 
 # License
 
