@@ -1,0 +1,14 @@
+{
+  "name": "talks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "npx bunpare"
+  },
+  "workspaces": [
+    "./*"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
