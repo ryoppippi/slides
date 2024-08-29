@@ -10,8 +10,5 @@
   },
   "workspaces": [
     "./*"
-  ],
-  "devDependencies": {
-    "@types/bun": "latest"
-  }
+  ]
 }
