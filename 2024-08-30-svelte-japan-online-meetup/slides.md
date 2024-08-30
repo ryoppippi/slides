@@ -5,9 +5,11 @@ layout: intro
 
 # 最近作ってるライブラリ怒涛の紹介！
 
+Svelte Japan Online Meetup #4
+
 <div class="absolute bottom-10">
   <span class="font-700">
-    <a href="https://github.com/ryoppippi" target="_blank">@ryoppippi</a>
+    <a href="https://ryoppippi.com" target="_blank">@ryoppippi</a>
   </span>
 </div>
 
@@ -19,8 +21,9 @@ image: https://ryoppippi.com/ryoppippi.jpg
 # Who am I?
 
 - Svelte歴 - 4年目
-- フリーランス & 博士学生 (最近は色々お休み中)
-- Webとか機械学習系のPoCを回してる
+- <budoux>フリーランス & 博士学生 (最近は色々お休み中)</budoux>
+- UK在住
+- <budoux>Webとか機械学習系のPoCを回してる</budoux>
 - <budoux>好きあらばSvelte/SvelteKitを案件にぶちこむ人</budoux>
 - [vim-jp](https://vim-jp.org/) にも生息してます(Neovimはいいぞ)
 
@@ -45,7 +48,7 @@ image: ./budoux.png
 ### 特徴
 - `Svelte`の`proprocessor`
 - <budoux>ビルド時に分かち書き、埋め込みをするので、**bundle / runtime cost free!**</budoux>
-- <budoux>CSS だけでできる`word-break: auto-phrase;` が Chrome 以外でも使えるになるまでは必要そう</budoux>
+- <budoux>`word-break: auto-phrase;` が Chrome 以外でも使えるになるまでは必要そう</budoux>
 
 ---
 layout: image-right
@@ -63,10 +66,8 @@ import {
 
 export default {
 	preprocess: [
-		vitePreprocess(),
 		budouxPreprocess({ language: 'ja' }),
 	],
-	// ... other svelte options
 };
 
 ```
@@ -80,10 +81,11 @@ export default {
 
 ```svelte
 <!-- +page.svelte -->
-<p data-budoux="" 
+<p
   style="
     word-break: keep-all; 
-    overflow-wrap: anywhere;"
+    overflow-wrap: anywhere;
+    "
 > 
   本日は 晴天です。 明日は 曇りでしょう。 
 </p>
@@ -92,8 +94,8 @@ export default {
 ````
 
 ---
-layout: image-right
-image: ./sveltweet.png
+layout: iframe-right
+url: https://sveltweet.vercel.app/async/1829286885627445584
 ---
 
 # [Sveltweet](https://github.com/ryoppippi/sveltweet)
@@ -114,11 +116,17 @@ image: ./sveltweet.png
 # [svelte-preprocess-import-css](https://github.com/ryoppippi/svelte-preprocess-import-css)
 [![JSR](https://jsr.io/badges/@ryoppippi/svelte-preprocess-import-css)](https://jsr.io/@ryoppippi/svelte-preprocess-import-css)
 
+
+### モチベーション
+- 外部のCSS File を読み込んで使いたいが、scoped にしたい
+<!-- svelte script tagでimport css すると、scoped にならない -->
+### 特徴
 - Svelte Preprocessor
-- 外部のCSS File を読み込んで、SvelteのScoped CSSに変換
+- <budoux> `style` タグ内で `@import` を使うことで、外部 css を scoped に読み込むことができる</budoux>
+
+
 ```css
 /* a.css */
-div { color: red; }
 .message { color: blue; }
 
 ```
@@ -166,7 +174,10 @@ export default defineConfig({
     plugins: [
         cloudflareRedirect({
             mode: "parse",
-            redirectsFile: './custom/_redirects' // optional
+            entries: [
+                { from: '/foo', to: 'https://example.com', status: 302 },
+                // ...
+            ]
         })
     ]
 })
@@ -246,7 +257,7 @@ layout: two-cols-header
 - <budoux>コンパイル時にコード生成を行うので、高速かつ軽量</budoux>
 - [記事も書いたので読んでね！](https://zenn.dev/ryoppippi/articles/c4775a3a5f3c11)
 - 先日 v1.0.0 をリリースしました
-- <budoux>Svelte の Script tag で `Typia` が使える！</budoux>
+- <budoux>`Svelte` の Script tag で `Typia` が使える！</budoux>
 - [Demo](https://unplugin-typia-sveltekit.pages.dev/)
 - <budoux>[`Superforms`](https://superforms.rocks/) 等のエコシステムライブラリにPRを送ってます</budoux>
 - <budoux>みんな使ってね！</budoux>
